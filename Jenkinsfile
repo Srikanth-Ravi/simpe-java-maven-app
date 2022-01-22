@@ -24,15 +24,15 @@ pipeline {
     }
     stage('Push Artifact to S3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://demo-swhizz-1'
+        sh 'aws s3 cp webapp/target/webapp.war s3://srikanth412'
       }
     }
     
-    stage('Deploy to tomcat') {
-      steps {
-        sh 'sudo scp -i $tomcat_pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@3.110.102.219:/opt/tomcat/webapps'
-      }
-    }
+    // stage('Deploy to tomcat') {
+     //  steps {
+     //  sh 'sudo scp -i $tomcat_pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@3.110.102.219:/opt/tomcat/webapps'
+     //}
+    //}
 //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
